@@ -5,14 +5,16 @@ const bot = new TelegramBot(token, {
   polling: process.env.NODE_ENV !== 'production'
 });
 
+// Comandos
 bot.onText(/\/start/, (msg) => {
-  bot.sendMessage(msg.chat.id, `Eai Faelzin! Bot rodando perfeito no Render! 😎🔥`);
+  bot.sendMessage(msg.chat.id, "Eai Faelzin! Bot rodando perfeito agora! 😎🔥");
 });
 
 bot.onText(/\/ping/, (msg) => {
-  bot.sendMessage(msg.chat.id, `Pong! 🏓 Tudo certo!`);
+  bot.sendMessage(msg.chat.id, "Pong! 🏓 Tudo certo!");
 });
 
+// Configuração Render
 if (process.env.NODE_ENV === 'production') {
   bot.setWebHook(process.env.RENDER_EXTERNAL_URL + '/' + token);
 }
